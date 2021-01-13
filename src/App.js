@@ -1,45 +1,44 @@
 import React, { Component } from "react";
 import Header from "./Components/Header";
-import Separation from "./Components/Separation"
-import InfoProfile from "./Components/InfoProfile";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import AboutMe from "./Components/AboutMe";
-import PortfolioSect from "./Components/PortfolioSect";
-import NeatSplash from "./Components/NeatSplash";
-import backgroundVii from "./Components/images/backgroundVii.jpg";
+import Footer from "./Components/Footer";
+import Home from "./Components/Home";
+import Portfolio from "./Components/Portfolio";
+import Contact from "./Components/Contact";
 import './App.css';
+import NeatSplash from "./Components/NeatSplash";
 
 const style = {
   backgroundDiv: {
     minHeight: "100vh",
-    backgroundImage: "url(" + { backgroundVii } + ")"
+    background: "darkGrey",
+    // backgroundImage: `url("/rain.jpg")`,
+    // backgroundSize: 'cover',
+    noRepeat: '-99999px -9999px',
+    display: "flex",
+    flexDirection: "column"
   }
 }
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      change: []
-    }
-  }
+const App = () => {
 
 
-
-  render() {
-
-    return (
-      <div className="App">
-        <div style={style.backgroundDiv}>
-        <Header />
+  return (
+    <Router>
+      <Header />
+      <div className="App" style={style.backgroundDiv}>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/AboutMe" component={AboutMe} />
+      <Route exact path="/Portfolio" component={Portfolio} />
+      <Route exact path="/Contact" component={Contact} />
+      <div className="mainContent">
         <NeatSplash />
-        <InfoProfile />
-        <Separation />
-        <PortfolioSect />
-        <AboutMe />
-        </div>
       </div>
-    );
-  }
+      <Footer />
+    </div>
+    </Router>
+  );
 }
 
 export default App;

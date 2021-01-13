@@ -21,3 +21,7 @@
 .App-link {
   color: #61dafb;
 }
+.mainContent{
+  flex:1;
+  color:white;
+}
