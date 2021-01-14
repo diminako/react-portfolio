@@ -1,6 +1,6 @@
 .footer{
-    background: violet;
-    color: white;
+    background: linear-gradient(202deg, #8fe0d4, #dfe0df);
+    color: black;
     min-height: 50px;
     display: flex;
     justify-content: center;
